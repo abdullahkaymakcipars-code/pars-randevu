@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STUDIO PARS - Randevu Sistemi</title>
+
+<style>
+
+:root {
+    --black: #080808;
+    --black2: #111111;
+    --black3: #1a1a1a;
+    --yellow: #ffe500;
+    --yellow-dark: #d9c200;
+
+    --white: #ffffff;
+    --gray: #9ca3af;
+    --light: #f4f4f4;
+
+    --green: #22c55e;
+    --orange: #f59e0b;
+    --blue: #3b82f6;
+    --red: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eeeeee;
+    color: #161616;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: var(--black);
+    border-bottom: 4px solid var(--yellow);
+    color: white;
+}
+
+.header-inner {
+    max-width: 1450px;
+    margin: auto;
+
+    min-height: 125px;
+
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: block;
+
+    width: 310px;
+    max-width: 70vw;
+
+    height: auto;
+}
+
+
+/* CLOCK */
+
+.clock-box {
+    text-align: right;
+}
+
+.clock {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--yellow);
+
+    letter-spacing: 1px;
+}
+
+.date-clock {
+    color: #ffffff;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.timezone {
+    color: #999999;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container {
+    max-width: 1450px;
+    margin: 25px auto;
+
+    padding: 0 20px;
+}
+
+
+/* =========================
+   TOOLBAR
+========================= */
+
+.toolbar {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
+}
+
+.date-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-area input {
+    width: 170px;
+}
+
+
+/* BUTTONS */
+
+button {
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 11px 16px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.btn-yellow {
+    background: var(--yellow);
+    color: #000;
+}
+
+.btn-yellow:hover {
+    background: #ffef42;
+    transform: translateY(-1px);
+}
+
+.btn-black {
+    background: var(--black);
+    color: white;
+}
+
+.btn-black:hover {
+    background: #222;
+}
+
+.day-button {
+    width: 43px;
+    height: 43px;
+
+    padding: 0;
+
+    font-size: 20px;
+
+    background: var(--black);
+    color: var(--yellow);
+}
+
+.day-button:hover {
+    background: #222;
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 20px 0;
+}
+
+.stat {
+    background: white;
+
+    border-radius: 13px;
+
+    padding: 18px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 14px rgba(0,0,0,.06);
+}
+
+.stat::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background: var(--yellow);
+}
+
+.stat-title {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.stat-value {
+    margin-top: 6px;
+
+    font-size: 29px;
+
+    font-weight: 900;
+
+    color: var(--black);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrapper {
+    background: white;
+
+    border-radius: 14px;
+
+    overflow-x: auto;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.08);
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+thead {
+    background: var(--black);
+    color: white;
+}
+
+th {
+    padding: 16px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: .4px;
+
+    white-space: nowrap;
+}
+
+th:first-child {
+    color: var(--yellow);
+}
+
+td {
+    padding: 16px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+tbody tr {
+    transition: .2s;
+}
+
+tbody tr:hover td {
+    background: #fffde2;
+}
+
+
+/* TIME */
+
+.time {
+    font-size: 19px;
+
+    font-weight: 900;
+
+    color: #111;
+}
+
+.time-small {
+    font-size: 11px;
+
+    color: #999;
+
+    margin-top: 2px;
+}
+
+
+/* COMPANY */
+
+.company-name {
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+
+/* BRAND */
+
+.brand {
+    display: inline-block;
+
+    background: #f3f3f3;
+
+    color: #222;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.waiting {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.progress {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.completed {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* =========================
+   NEXT APPOINTMENT
+========================= */
+
+.next-appointment td {
+    background: #fffbd0 !important;
+
+    border-top: 2px solid var(--yellow);
+
+    border-bottom: 2px solid var(--yellow);
+}
+
+.next-badge {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    background: var(--yellow);
+
+    color: #000;
+
+    padding: 4px 7px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions {
+    display: flex;
+
+    gap: 7px;
+}
+
+.btn-edit {
+    background: #e5e7eb;
+
+    color: #111;
+
+    padding: 8px 10px;
+}
+
+.btn-edit:hover {
+    background: var(--yellow);
+}
+
+.btn-delete {
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    padding: 8px 10px;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    text-align: center;
+
+    padding: 65px 20px;
+
+    color: #777;
+}
+
+.empty-icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings {
+    margin-top: 25px;
+
+    background: var(--black);
+
+    color: white;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,.1);
+}
+
+.settings-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--yellow);
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 12px;
+
+    color: #bbbbbb;
+
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    padding: 11px 12px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--yellow);
+
+    box-shadow:
+        0 0 0 2px rgba(255,229,0,.2);
+}
+
+.settings input,
+.settings select {
+    background: #1c1c1c;
+
+    color: white;
+
+    border-color: #333;
+}
+
+.settings select option {
+    background: #1c1c1c;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    inset: 0;
+
+    background:
+        rgba(0,0,0,.75);
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.4);
+}
+
+.modal-header {
+    background: var(--black);
+
+    color: white;
+
+    padding: 20px 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 4px solid var(--yellow);
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+.close {
+    background: #222;
+
+    color: white;
+
+    font-size: 18px;
+
+    padding: 7px 11px;
+}
+
+.close:hover {
+    background: var(--yellow);
+
+    color: black;
+}
+
+.modal-body {
+    padding: 22px;
+}
+
+.modal-form {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.required {
+    color: #dc2626;
+}
+
+textarea {
+    min-height: 95px;
+
+    resize: vertical;
+}
+
+.modal-footer {
+    padding: 0 22px 22px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 800px) {
+
+    .header-inner {
+        min-height: auto;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .logo {
+        width: 270px;
+    }
+
+    .clock-box {
+        text-align: center;
+    }
+
+    .clock {
+        font-size: 20px;
+    }
+
+    .container {
+        margin-top: 15px;
+
+        padding: 0 10px;
+    }
+
+    .toolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .date-area {
+        justify-content: center;
+    }
+
+    .date-area input {
+        flex: 1;
+    }
+
+    .btn-yellow {
+        width: 100%;
+    }
+
+    .stats {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .stat {
+        padding: 14px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .form-grid,
+    .modal-form {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .modal-box {
+        max-height: 95vh;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="header-inner">
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="STUDIO PARS">
+
+        <div class="clock-box">
+
+            <div
+                class="clock"
+                id="clock">
+                --:--:--
+            </div>
+
+            <div
+                class="date-clock"
+                id="dateClock">
+                --
+            </div>
+
+            <div
+                class="timezone"
+                id="timezoneText">
+                Europe/Istanbul
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<div class="container">
+
+
+<!-- =========================
+     TOOLBAR
+========================= -->
+
+<div class="toolbar">
+
+    <div class="date-area">
+
+        <button
+            class="day-button"
+            onclick="changeDay(-1)">
+            ‹
+        </button>
+
+        <input
+            type="date"
+            id="datePicker"
+            onchange="render()">
+
+        <button
+            class="day-button"
+            onclick="changeDay(1)">
+            ›
+        </button>
+
+    </div>
+
+
+    <button
+        class="btn-yellow"
+        onclick="openModal()">
+
+        ＋ YENİ RANDEVU
+
+    </button>
+
+</div>
+
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <div class="stat-title">
+            BUGÜNÜN RANDEVULARI
+        </div>
+
+        <div
+            class="stat-value"
+            id="totalCount">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-title">
+            BEKLEYEN
+        </div>
+
+        <div
+            class="stat-value"
+            id="waitingCount">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-title">
+            İŞLEMDE
+        </div>
+
+        <div
+            class="stat-value"
+            id="progressCount">
+            0
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-title">
+            TAMAMLANAN
+        </div>
+
+        <div
+            class="stat-value"
+            id="completedCount">
+            0
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     TABLE
+========================= -->
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>
+        SAAT
+    </th>
+
+    <th>
+        FİRMA
+    </th>
+
+    <th>
+        MARKA
+    </th>
+
+    <th>
+        DURUM
+    </th>
+
+    <th>
+        NOT
+    </th>
+
+    <th>
+        İŞLEMLER
+    </th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="appointmentTable">
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<div class="settings">
+
+    <div class="settings-title">
+
+        ⚙️
+
+        <span>
+            SİSTEM AYARLARI
+        </span>
+
+    </div>
+
+
+    <div class="form-grid">
+
+        <div class="form-group">
+
+            <label>
+                FİRMA / İŞLETME ADI
+            </label>
+
+            <input
+                id="companyInput"
+                value="STUDIO PARS">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>
+                SAAT DİLİMİ
+            </label>
+
+            <select id="timezoneInput">
+
+                <option value="Europe/Istanbul">
+                    Türkiye — Europe/Istanbul
+                </option>
+
+                <option value="Europe/Berlin">
+                    Almanya — Europe/Berlin
+                </option>
+
+                <option value="Europe/London">
+                    İngiltere — Europe/London
+                </option>
+
+                <option value="Europe/Paris">
+                    Fransa — Europe/Paris
+                </option>
+
+                <option value="Asia/Dubai">
+                    Dubai — Asia/Dubai
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    <button
+        class="btn-yellow"
+        onclick="saveSettings()">
+
+        AYARLARI KAYDET
+
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="appointmentModal">
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+            <h2 id="modalTitle">
+                Yeni Randevu
+            </h2>
+
+
+            <button
+                class="close"
+                onclick="closeModal()">
+
+                ✕
+
+            </button>
+
+        </div>
+
+
+        <div class="modal-body">
+
+
+            <div class="modal-form">
+
+
+                <!-- TARİH -->
+
+                <div class="form-group">
+
+                    <label>
+                        Tarih *
+                    </label>
+
+                    <input
+                        type="date"
+                        id="appointmentDate">
+
+                </div>
+
+
+                <!-- SAAT -->
+
+                <div class="form-group">
+
+                    <label>
+                        Saat *
+                    </label>
+
+                    <input
+                        type="time"
+                        id="appointmentTime">
+
+                </div>
+
+
+                <!-- FİRMA -->
+
+                <div
+                    class="form-group full">
+
+                    <label>
+                        Firma Adı *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="appointmentCompany"
+                        placeholder="Örn: ABC Otomotiv">
+
+                </div>
+
+
+                <!-- MARKA -->
+
+                <div class="form-group">
+
+                    <label>
+                        Marka
+                    </label>
+
+                    <input
+                        type="text"
+                        id="brand"
+                        placeholder="Örn: BMW">
+
+                </div>
+
+
+                <!-- DURUM -->
+
+                <div class="form-group">
+
+                    <label>
+                        Durum
+                    </label>
+
+                    <select id="status">
+
+                        <option value="waiting">
+                            🟢 Bekliyor
+                        </option>
+
+                        <option value="progress">
+                            🟡 İşlemde
+                        </option>
+
+                        <option value="completed">
+                            🔵 Tamamlandı
+                        </option>
+
+                        <option value="cancelled">
+                            🔴 İptal
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- NOT -->
+
+                <div
+                    class="form-group full">
+
+                    <label>
+                        Not
+                    </label>
+
+                    <textarea
+                        id="note"
+                        placeholder="Randevu hakkında not..."></textarea>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+
+            <button
+                class="btn-black"
+                onclick="closeModal()">
+
+                VAZGEÇ
+
+            </button>
+
+
+            <button
+                class="btn-yellow"
+                onclick="saveAppointment()">
+
+                KAYDET
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   DATA
+========================= */
+
+let appointments =
+    JSON.parse(
+        localStorage.getItem(
+            "studioParsAppointments"
+        )
+    ) || [];
+
+
+let editingId = null;
+
+
+let settings =
+    JSON.parse(
+        localStorage.getItem(
+            "studioParsSettings"
+        )
+    ) || {
+
+        company: "STUDIO PARS",
+
+        timezone: "Europe/Istanbul"
+
+    };
+
+
+
+/* =========================
+   TODAY
+========================= */
+
+const today =
+    new Intl.DateTimeFormat(
+        "en-CA",
+        {
+            timeZone:
+                settings.timezone
+        }
+    ).format(
+        new Date()
+    );
+
+
+document.getElementById(
+    "datePicker"
+).value = today;
+
+
+
+/* =========================
+   RENDER
+========================= */
+
+function render() {
+
+
+    const selectedDate =
+        document.getElementById(
+            "datePicker"
+        ).value;
+
+
+    const list =
+        appointments
+
+        .filter(
+            x =>
+                x.date ===
+                selectedDate
+        )
+
+        .sort(
+            (a,b) =>
+                a.time.localeCompare(
+                    b.time
+                )
+        );
+
+
+    const table =
+        document.getElementById(
+            "appointmentTable"
+        );
+
+
+    table.innerHTML = "";
+
+
+    if (
+        list.length === 0
+    ) {
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="empty">
+
+                    <div class="empty-icon">
+                        📅
+                    </div>
+
+                    <strong>
+                        Bu gün için randevu yok
+                    </strong>
+
+                    <br>
+
+                    <small>
+                        Yeni randevu eklemek için
+                        "YENİ RANDEVU" butonunu kullanın.
+                    </small>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+
+    else {
+
+
+        const now =
+            new Date();
+
+
+        const currentDate =
+            new Intl.DateTimeFormat(
+                "en-CA",
+                {
+                    timeZone:
+                        settings.timezone
+                }
+            ).format(now);
+
+
+        const currentTime =
+            new Intl.DateTimeFormat(
+                "en-GB",
+                {
+                    timeZone:
+                        settings.timezone,
+
+                    hour:
+                        "2-digit",
+
+                    minute:
+                        "2-digit",
+
+                    hour12:
+                        false
+                }
+            ).format(now);
+
+
+        let nextFound = false;
+
+
+        list.forEach(a => {
+
+
+            let isNext =
+                false;
+
+
+            if (
+                !nextFound &&
+                selectedDate === currentDate &&
+                a.time >= currentTime &&
+                a.status !== "completed" &&
+                a.status !== "cancelled"
+            ) {
+
+                isNext = true;
+
+                nextFound = true;
+
+            }
+
+
+            const statusText = {
+
+                waiting:
+                    "🟢 Bekliyor",
+
+                progress:
+                    "🟡 İşlemde",
+
+                completed:
+                    "🔵 Tamamlandı",
+
+                cancelled:
+                    "🔴 İptal"
+
+            };
+
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            if (isNext) {
+
+                row.classList.add(
+                    "next-appointment"
+                );
+
+            }
+
+
+            row.innerHTML = `
+
+                <td>
+
+                    <div class="time">
+                        ${escapeHtml(a.time)}
+                    </div>
+
+                    ${
+                        isNext
+
+                        ? `
+                            <span class="next-badge">
+                                ★ SIRADAKİ
+                            </span>
+                          `
+
+                        : ""
+                    }
+
+                </td>
+
+
+                <td>
+
+                    <div class="company-name">
+                        ${escapeHtml(a.company)}
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    ${
+                        a.brand
+
+                        ? `
+                            <span class="brand">
+                                ${escapeHtml(a.brand)}
+                            </span>
+                          `
+
+                        : `<span style="color:#aaa">—</span>`
+                    }
+
+                </td>
+
+
+                <td>
+
+                    <span
+                        class="status ${a.status}">
+
+                        ${
+                            statusText[
+                                a.status
+                            ]
+                        }
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    ${
+                        a.note
+
+                        ? escapeHtml(a.note)
+
+                        : `<span style="color:#aaa">—</span>`
+                    }
+
+                </td>
+
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="btn-edit"
+                            onclick="editAppointment('${a.id}')"
+                            title="Düzenle">
+
+                            ✏️
+
+                        </button>
+
+
+                        <button
+                            class="btn-delete"
+                            onclick="deleteAppointment('${a.id}')"
+                            title="Sil">
+
+                            🗑️
+
+                        </button>
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            table.appendChild(row);
+
+        });
+
+    }
+
+
+    updateStats(list);
+
+}
+
+
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats(list) {
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        list.length;
+
+
+    document.getElementById(
+        "waitingCount"
+    ).textContent =
+        list.filter(
+            x =>
+                x.status ===
+                "waiting"
+        ).length;
+
+
+    document.getElementById(
+        "progressCount"
+    ).textContent =
+        list.filter(
+            x =>
+                x.status ===
+                "progress"
+        ).length;
+
+
+    document.getElementById(
+        "completedCount"
+    ).textContent =
+        list.filter(
+            x =>
+                x.status ===
+                "completed"
+        ).length;
+
+}
+
+
+
+/* =========================
+   OPEN MODAL
+========================= */
+
+function openModal() {
+
+
+    editingId = null;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "Yeni Randevu";
+
+
+    document.getElementById(
+        "appointmentDate"
+    ).value =
+        document.getElementById(
+            "datePicker"
+        ).value;
+
+
+    document.getElementById(
+        "appointmentTime"
+    ).value = "";
+
+
+    document.getElementById(
+        "appointmentCompany"
+    ).value = "";
+
+
+    document.getElementById(
+        "brand"
+    ).value = "";
+
+
+    document.getElementById(
+        "status"
+    ).value =
+        "waiting";
+
+
+    document.getElementById(
+        "note"
+    ).value = "";
+
+
+    document.getElementById(
+        "appointmentModal"
+    ).classList.add(
+        "active"
+    );
+
+}
+
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal() {
+
+    document.getElementById(
+        "appointmentModal"
+    ).classList.remove(
+        "active"
+    );
+
+}
+
+
+
+/* =========================
+   SAVE
+========================= */
+
+function saveAppointment() {
+
+
+    const date =
+        document.getElementById(
+            "appointmentDate"
+        ).value;
+
+
+    const time =
+        document.getElementById(
+            "appointmentTime"
+        ).value;
+
+
+    const company =
+        document.getElementById(
+            "appointmentCompany"
+        ).value.trim();
+
+
+    /*
+       SADECE TARİH,
+       SAAT VE FİRMA ZORUNLU
+    */
+
+    if (
+        !date ||
+        !time ||
+        !company
+    ) {
+
+        alert(
+            "Tarih, saat ve firma adı zorunludur."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       SAAT ÇAKIŞMASI
+    */
+
+    const duplicate =
+        appointments.some(
+            x =>
+                x.date === date &&
+                x.time === time &&
+                x.id !== editingId
+        );
+
+
+    if (duplicate) {
+
+        const continueSave =
+            confirm(
+                "⚠️ Bu saatte zaten bir randevu bulunuyor.\n\nYine de kaydetmek istiyor musunuz?"
+            );
+
+
+        if (!continueSave) {
+
+            return;
+
+        }
+
+    }
+
+
+    const data = {
+
+        id:
+            editingId ||
+            Date.now().toString(),
+
+        date:
+            date,
+
+        time:
+            time,
+
+        company:
+            company,
+
+        brand:
+            document.getElementById(
+                "brand"
+            ).value.trim(),
+
+        status:
+            document.getElementById(
+                "status"
+            ).value,
+
+        note:
+            document.getElementById(
+                "note"
+            ).value.trim()
+
+    };
+
+
+    if (editingId) {
+
+
+        const index =
+            appointments.findIndex(
+                x =>
+                    x.id ===
+                    editingId
+            );
+
+
+        if (index !== -1) {
+
+            appointments[index] =
+                data;
+
+        }
+
+
+    } else {
+
+        appointments.push(data);
+
+    }
+
+
+    localStorage.setItem(
+        "studioParsAppointments",
+        JSON.stringify(
+            appointments
+        )
+    );
+
+
+    /*
+       Tarihi değiştirip
+       kaydedilen randevunun
+       tarihine geç
+    */
+
+    document.getElementById(
+        "datePicker"
+    ).value =
+        date;
+
+
+    closeModal();
+
+    render();
+
+}
+
+
+
+/* =========================
+   EDIT
+========================= */
+
+function editAppointment(id) {
+
+
+    const a =
+        appointments.find(
+            x =>
+                x.id === id
+        );
+
+
+    if (!a) return;
+
+
+    editingId = id;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        "Randevuyu Düzenle";
+
+
+    document.getElementById(
+        "appointmentDate"
+    ).value =
+        a.date;
+
+
+    document.getElementById(
+        "appointmentTime"
+    ).value =
+        a.time;
+
+
+    document.getElementById(
+        "appointmentCompany"
+    ).value =
+        a.company || "";
+
+
+    document.getElementById(
+        "brand"
+    ).value =
+        a.brand || "";
+
+
+    document.getElementById(
+        "status"
+    ).value =
+        a.status ||
+        "waiting";
+
+
+    document.getElementById(
+        "note"
+    ).value =
+        a.note || "";
+
+
+    document.getElementById(
+        "appointmentModal"
+    ).classList.add(
+        "active"
+    );
+
+}
+
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteAppointment(id) {
+
+
+    const a =
+        appointments.find(
+            x =>
+                x.id === id
+        );
+
+
+    if (!a) return;
+
+
+    const answer =
+        confirm(
+
+            "Randevu silinecek.\n\n" +
+
+            "Firma: " +
+            a.company +
+
+            "\nSaat: " +
+            a.time +
+
+            "\n\nDevam etmek istiyor musunuz?"
+
+        );
+
+
+    if (!answer) return;
+
+
+    appointments =
+        appointments.filter(
+            x =>
+                x.id !== id
+        );
+
+
+    localStorage.setItem(
+        "studioParsAppointments",
+        JSON.stringify(
+            appointments
+        )
+    );
+
+
+    render();
+
+}
+
+
+
+/* =========================
+   CHANGE DAY
+========================= */
+
+function changeDay(amount) {
+
+
+    const input =
+        document.getElementById(
+            "datePicker"
+        );
+
+
+    const date =
+        new Date(
+            input.value +
+            "T12:00:00"
+        );
+
+
+    date.setDate(
+        date.getDate() +
+        amount
+    );
+
+
+    input.value =
+        date.toISOString()
+        .split("T")[0];
+
+
+    render();
+
+}
+
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+function saveSettings() {
+
+
+    settings.company =
+        document.getElementById(
+            "companyInput"
+        ).value.trim()
+        ||
+        "STUDIO PARS";
+
+
+    settings.timezone =
+        document.getElementById(
+            "timezoneInput"
+        ).value;
+
+
+    localStorage.setItem(
+        "studioParsSettings",
+        JSON.stringify(
+            settings
+        )
+    );
+
+
+    document.getElementById(
+        "timezoneText"
+    ).textContent =
+        settings.timezone;
+
+
+    alert(
+        "Ayarlar kaydedildi."
+    );
+
+
+    updateClock();
+
+    render();
+
+}
+
+
+
+/* =========================
+   CLOCK
+========================= */
+
+function updateClock() {
+
+
+    const now =
+        new Date();
+
+
+    const time =
+        new Intl.DateTimeFormat(
+            "tr-TR",
+            {
+
+                timeZone:
+                    settings.timezone,
+
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit",
+
+                second:
+                    "2-digit"
+
+            }
+        ).format(now);
+
+
+    const date =
+        new Intl.DateTimeFormat(
+            "tr-TR",
+            {
+
+                timeZone:
+                    settings.timezone,
+
+                weekday:
+                    "long",
+
+                day:
+                    "2-digit",
+
+                month:
+                    "long",
+
+                year:
+                    "numeric"
+
+            }
+        ).format(now);
+
+
+    document.getElementById(
+        "clock"
+    ).textContent =
+        time;
+
+
+    document.getElementById(
+        "dateClock"
+    ).textContent =
+        date;
+
+
+    document.getElementById(
+        "timezoneText"
+    ).textContent =
+        settings.timezone;
+
+}
+
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value) {
+
+    return String(
+        value || ""
+    )
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+
+/* =========================
+   APPLY SETTINGS
+========================= */
+
+function applySettings() {
+
+
+    document.getElementById(
+        "companyInput"
+    ).value =
+        settings.company;
+
+
+    document.getElementById(
+        "timezoneInput"
+    ).value =
+        settings.timezone;
+
+}
+
+
+
+/* =========================
+   START
+========================= */
+
+applySettings();
+
+render();
+
+updateClock();
+
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+/*
+   Saat değiştikçe
+   sıradaki randevunun
+   vurgusu da güncellensin.
+*/
+
+setInterval(
+    render,
+    30000
+);
+
+</script>
+
+</body>
+</html>
