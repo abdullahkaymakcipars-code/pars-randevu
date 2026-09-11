@@ -5,7 +5,351 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>STUDIO PARS - Randevu Sistemi</title>
+/* =====================================================
+   MOBİL GÖRÜNÜM - KART TASARIMI
+   ===================================================== */
 
+@media (max-width: 800px) {
+
+    body {
+        background: #eeeeee;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 10px;
+        margin: 12px auto;
+    }
+
+    /* HEADER */
+
+    .header-inner {
+        min-height: auto;
+        padding: 18px 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 230px;
+        max-width: 75vw;
+    }
+
+    .clock-box {
+        text-align: center;
+    }
+
+    .clock {
+        font-size: 19px;
+    }
+
+    .date-clock {
+        font-size: 13px;
+    }
+
+    /* TARİH ALANI */
+
+    .toolbar {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .date-area {
+        width: 100%;
+        display: flex;
+    }
+
+    .date-area input {
+        width: 100%;
+        flex: 1;
+        text-align: center;
+    }
+
+    .day-button {
+        flex: 0 0 42px;
+    }
+
+    .toolbar > .btn-yellow {
+        width: 100%;
+        padding: 13px;
+    }
+
+    /* İSTATİSTİKLER */
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin: 12px 0;
+    }
+
+    .stat {
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .stat-title {
+        font-size: 10px;
+    }
+
+    .stat-value {
+        font-size: 23px;
+        margin-top: 3px;
+    }
+
+    /* TABLOYU KART SİSTEMİNE ÇEVİR */
+
+    .table-wrapper {
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+        border-radius: 0;
+    }
+
+    table {
+        width: 100%;
+        min-width: 0;
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    tbody tr {
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        grid-template-areas:
+            "time status"
+            "company company"
+            "brand brand"
+            "note note"
+            "actions actions";
+
+        width: 100%;
+
+        background: #ffffff;
+
+        margin-bottom: 10px;
+
+        border-radius: 13px;
+
+        padding: 14px;
+
+        box-shadow:
+            0 3px 12px rgba(0,0,0,.08);
+
+        border: 1px solid #e5e5e5;
+    }
+
+    tbody tr:hover td {
+        background: transparent;
+    }
+
+    tbody td {
+        display: block;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent !important;
+    }
+
+    /* SAAT */
+
+    tbody td:nth-child(1) {
+        grid-area: time;
+
+        align-self: center;
+    }
+
+    .time {
+        font-size: 25px;
+
+        color: #111;
+
+        font-weight: 900;
+    }
+
+    .next-badge {
+        margin-top: 3px;
+
+        font-size: 9px;
+
+        padding: 3px 6px;
+    }
+
+    /* DURUM */
+
+    tbody td:nth-child(4) {
+        grid-area: status;
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        align-items: flex-start;
+    }
+
+    .status {
+        font-size: 10px;
+
+        padding: 6px 9px;
+    }
+
+    /* FİRMA */
+
+    tbody td:nth-child(2) {
+        grid-area: company;
+
+        margin-top: 12px;
+
+        padding-top: 10px;
+
+        border-top: 1px solid #eeeeee;
+    }
+
+    .company-name {
+        font-size: 17px;
+
+        font-weight: 900;
+    }
+
+    /* MARKA */
+
+    tbody td:nth-child(3) {
+        grid-area: brand;
+
+        margin-top: 7px;
+    }
+
+    .brand {
+        font-size: 12px;
+
+        padding: 5px 9px;
+    }
+
+    /* NOT */
+
+    tbody td:nth-child(5) {
+        grid-area: note;
+
+        margin-top: 9px;
+
+        color: #666;
+
+        font-size: 12px;
+
+        line-height: 1.4;
+    }
+
+    /* İŞLEMLER */
+
+    tbody td:nth-child(6) {
+        grid-area: actions;
+
+        margin-top: 13px;
+
+        padding-top: 11px;
+
+        border-top: 1px solid #eeeeee;
+    }
+
+    .actions {
+        width: 100%;
+
+        display: flex;
+
+        gap: 8px;
+    }
+
+    .actions button {
+        flex: 1;
+
+        padding: 10px;
+    }
+
+    /* BOŞ RANDEVU */
+
+    .empty {
+        display: block;
+
+        padding: 45px 15px;
+
+        background: white;
+
+        border-radius: 13px;
+    }
+
+    /* AYARLAR */
+
+    .settings {
+        margin-top: 15px;
+
+        padding: 16px;
+
+        border-radius: 13px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* MODAL */
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-box {
+        width: 100%;
+
+        max-height: 94vh;
+
+        border-radius: 14px;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 17px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .modal-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .modal-footer {
+        padding: 0 16px 16px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .modal-footer button {
+        width: 100%;
+    }
+
+}
 <style>
 
 :root {
