@@ -3,365 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
 
 <title>STUDIO PARS - Randevu Sistemi</title>
-/* =====================================================
-   MOBİL GÖRÜNÜM - KART TASARIMI
-   ===================================================== */
 
-@media (max-width: 800px) {
-
-    body {
-        background: #eeeeee;
-    }
-
-    .container {
-        width: 100%;
-        padding: 0 10px;
-        margin: 12px auto;
-    }
-
-    /* HEADER */
-
-    .header-inner {
-        min-height: auto;
-        padding: 18px 15px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .logo {
-        width: 230px;
-        max-width: 75vw;
-    }
-
-    .clock-box {
-        text-align: center;
-    }
-
-    .clock {
-        font-size: 19px;
-    }
-
-    .date-clock {
-        font-size: 13px;
-    }
-
-    /* TARİH ALANI */
-
-    .toolbar {
-        padding: 12px;
-        gap: 10px;
-    }
-
-    .date-area {
-        width: 100%;
-        display: flex;
-    }
-
-    .date-area input {
-        width: 100%;
-        flex: 1;
-        text-align: center;
-    }
-
-    .day-button {
-        flex: 0 0 42px;
-    }
-
-    .toolbar > .btn-yellow {
-        width: 100%;
-        padding: 13px;
-    }
-
-    /* İSTATİSTİKLER */
-
-    .stats {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        margin: 12px 0;
-    }
-
-    .stat {
-        padding: 12px;
-        border-radius: 10px;
-    }
-
-    .stat-title {
-        font-size: 10px;
-    }
-
-    .stat-value {
-        font-size: 23px;
-        margin-top: 3px;
-    }
-
-    /* TABLOYU KART SİSTEMİNE ÇEVİR */
-
-    .table-wrapper {
-        background: transparent;
-        box-shadow: none;
-        overflow: visible;
-        border-radius: 0;
-    }
-
-    table {
-        width: 100%;
-        min-width: 0;
-        display: block;
-    }
-
-    thead {
-        display: none;
-    }
-
-    tbody {
-        display: block;
-        width: 100%;
-    }
-
-    tbody tr {
-        display: grid;
-
-        grid-template-columns: 1fr auto;
-
-        grid-template-areas:
-            "time status"
-            "company company"
-            "brand brand"
-            "note note"
-            "actions actions";
-
-        width: 100%;
-
-        background: #ffffff;
-
-        margin-bottom: 10px;
-
-        border-radius: 13px;
-
-        padding: 14px;
-
-        box-shadow:
-            0 3px 12px rgba(0,0,0,.08);
-
-        border: 1px solid #e5e5e5;
-    }
-
-    tbody tr:hover td {
-        background: transparent;
-    }
-
-    tbody td {
-        display: block;
-
-        padding: 0;
-
-        border: none;
-
-        background: transparent !important;
-    }
-
-    /* SAAT */
-
-    tbody td:nth-child(1) {
-        grid-area: time;
-
-        align-self: center;
-    }
-
-    .time {
-        font-size: 25px;
-
-        color: #111;
-
-        font-weight: 900;
-    }
-
-    .next-badge {
-        margin-top: 3px;
-
-        font-size: 9px;
-
-        padding: 3px 6px;
-    }
-
-    /* DURUM */
-
-    tbody td:nth-child(4) {
-        grid-area: status;
-
-        display: flex;
-
-        justify-content: flex-end;
-
-        align-items: flex-start;
-    }
-
-    .status {
-        font-size: 10px;
-
-        padding: 6px 9px;
-    }
-
-    /* FİRMA */
-
-    tbody td:nth-child(2) {
-        grid-area: company;
-
-        margin-top: 12px;
-
-        padding-top: 10px;
-
-        border-top: 1px solid #eeeeee;
-    }
-
-    .company-name {
-        font-size: 17px;
-
-        font-weight: 900;
-    }
-
-    /* MARKA */
-
-    tbody td:nth-child(3) {
-        grid-area: brand;
-
-        margin-top: 7px;
-    }
-
-    .brand {
-        font-size: 12px;
-
-        padding: 5px 9px;
-    }
-
-    /* NOT */
-
-    tbody td:nth-child(5) {
-        grid-area: note;
-
-        margin-top: 9px;
-
-        color: #666;
-
-        font-size: 12px;
-
-        line-height: 1.4;
-    }
-
-    /* İŞLEMLER */
-
-    tbody td:nth-child(6) {
-        grid-area: actions;
-
-        margin-top: 13px;
-
-        padding-top: 11px;
-
-        border-top: 1px solid #eeeeee;
-    }
-
-    .actions {
-        width: 100%;
-
-        display: flex;
-
-        gap: 8px;
-    }
-
-    .actions button {
-        flex: 1;
-
-        padding: 10px;
-    }
-
-    /* BOŞ RANDEVU */
-
-    .empty {
-        display: block;
-
-        padding: 45px 15px;
-
-        background: white;
-
-        border-radius: 13px;
-    }
-
-    /* AYARLAR */
-
-    .settings {
-        margin-top: 15px;
-
-        padding: 16px;
-
-        border-radius: 13px;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* MODAL */
-
-    .modal {
-        padding: 10px;
-    }
-
-    .modal-box {
-        width: 100%;
-
-        max-height: 94vh;
-
-        border-radius: 14px;
-    }
-
-    .modal-header {
-        padding: 16px;
-    }
-
-    .modal-header h2 {
-        font-size: 17px;
-    }
-
-    .modal-body {
-        padding: 16px;
-    }
-
-    .modal-form {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .full {
-        grid-column: auto;
-    }
-
-    .modal-footer {
-        padding: 0 16px 16px;
-
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .modal-footer button {
-        width: 100%;
-    }
-
-}
 <style>
+
+/* =====================================================
+   GENEL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eeeeee;
+    color: #111111;
+}
+
+
+/* =====================================================
+   RENKLER
+===================================================== */
 
 :root {
     --black: #080808;
     --black2: #111111;
-    --black3: #1a1a1a;
+    --black3: #1c1c1c;
+
     --yellow: #ffe500;
-    --yellow-dark: #d9c200;
+    --yellow2: #ffed45;
 
     --white: #ffffff;
-    --gray: #9ca3af;
-    --light: #f4f4f4;
+    --gray: #777777;
+    --light-gray: #eeeeee;
 
     --green: #22c55e;
     --orange: #f59e0b;
@@ -369,160 +54,147 @@
     --red: #ef4444;
 }
 
-* {
-    box-sizing: border-box;
-}
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eeeeee;
-    color: #161616;
-}
-
-
-/* =========================
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
 
 header {
+    width: 100%;
     background: var(--black);
     border-bottom: 4px solid var(--yellow);
-    color: white;
 }
 
 .header-inner {
+    width: 100%;
     max-width: 1450px;
-    margin: auto;
-
     min-height: 125px;
 
+    margin: 0 auto;
     padding: 18px 25px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    gap: 30px;
+    gap: 25px;
 }
-
-
-/* LOGO */
 
 .logo {
     display: block;
 
     width: 310px;
-    max-width: 70vw;
+    max-width: 65vw;
 
     height: auto;
 }
-
-
-/* CLOCK */
 
 .clock-box {
     text-align: right;
 }
 
 .clock {
-    font-size: 24px;
-    font-weight: 800;
     color: var(--yellow);
+
+    font-size: 25px;
+    font-weight: 900;
 
     letter-spacing: 1px;
 }
 
 .date-clock {
-    color: #ffffff;
     margin-top: 5px;
+
+    color: white;
+
     font-size: 14px;
 }
 
 .timezone {
-    color: #999999;
     margin-top: 5px;
+
+    color: #888888;
+
     font-size: 12px;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* =====================================================
+   ANA CONTAINER
+===================================================== */
 
 .container {
+    width: 100%;
     max-width: 1450px;
+
     margin: 25px auto;
 
     padding: 0 20px;
 }
 
 
-/* =========================
+/* =====================================================
    TOOLBAR
-========================= */
+===================================================== */
 
 .toolbar {
+    width: 100%;
+
     background: white;
 
     border-radius: 14px;
 
-    padding: 16px;
+    padding: 15px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
     gap: 15px;
 
     box-shadow:
-        0 4px 18px rgba(0,0,0,.08);
+        0 4px 18px rgba(0,0,0,.07);
 }
 
 .date-area {
     display: flex;
     align-items: center;
-    gap: 8px;
+
+    gap: 7px;
 }
 
 .date-area input {
-    width: 170px;
+    width: 180px;
 }
-
-
-/* BUTTONS */
 
 button {
     border: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-weight: 800;
 
     border-radius: 8px;
 
-    padding: 11px 16px;
-
-    cursor: pointer;
-
-    font-weight: 700;
-
-    transition: .2s;
+    transition: .15s;
 }
 
 .btn-yellow {
     background: var(--yellow);
     color: #000;
+
+    padding: 12px 18px;
 }
 
 .btn-yellow:hover {
-    background: #ffef42;
-    transform: translateY(-1px);
+    background: var(--yellow2);
 }
 
 .btn-black {
     background: var(--black);
     color: white;
-}
 
-.btn-black:hover {
-    background: #222;
+    padding: 12px 18px;
 }
 
 .day-button {
@@ -531,22 +203,53 @@ button {
 
     padding: 0;
 
-    font-size: 20px;
-
     background: var(--black);
     color: var(--yellow);
+
+    font-size: 23px;
 }
 
-.day-button:hover {
-    background: #222;
+
+/* =====================================================
+   INPUTLAR
+===================================================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    border: 1px solid #d2d2d2;
+
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 11px 12px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--yellow);
+
+    box-shadow:
+        0 0 0 2px rgba(255,229,0,.18);
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* =====================================================
+   İSTATİSTİKLER
+===================================================== */
 
 .stats {
+    width: 100%;
+
     display: grid;
 
     grid-template-columns:
@@ -558,13 +261,13 @@ button {
 }
 
 .stat {
+    position: relative;
+
     background: white;
 
     border-radius: 13px;
 
     padding: 18px;
-
-    position: relative;
 
     overflow: hidden;
 
@@ -577,9 +280,9 @@ button {
 
     position: absolute;
 
-    left: 0;
     top: 0;
     bottom: 0;
+    left: 0;
 
     width: 5px;
 
@@ -587,37 +290,37 @@ button {
 }
 
 .stat-title {
-    color: #6b7280;
+    color: #777777;
 
-    font-size: 13px;
-
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 800;
 }
 
 .stat-value {
-    margin-top: 6px;
+    margin-top: 5px;
+
+    color: #111111;
 
     font-size: 29px;
-
     font-weight: 900;
-
-    color: var(--black);
 }
 
 
-/* =========================
-   TABLE
-========================= */
+/* =====================================================
+   MASAÜSTÜ TABLO
+===================================================== */
 
 .table-wrapper {
+    width: 100%;
+
     background: white;
 
     border-radius: 14px;
 
-    overflow-x: auto;
+    overflow: hidden;
 
     box-shadow:
-        0 4px 18px rgba(0,0,0,.08);
+        0 4px 18px rgba(0,0,0,.07);
 }
 
 table {
@@ -625,11 +328,12 @@ table {
 
     border-collapse: collapse;
 
-    min-width: 850px;
+    table-layout: fixed;
 }
 
 thead {
     background: var(--black);
+
     color: white;
 }
 
@@ -638,101 +342,96 @@ th {
 
     text-align: left;
 
-    font-size: 13px;
-
-    font-weight: 800;
+    font-size: 12px;
+    font-weight: 900;
 
     letter-spacing: .4px;
-
-    white-space: nowrap;
 }
 
 th:first-child {
     color: var(--yellow);
 }
 
+th:nth-child(1) {
+    width: 12%;
+}
+
+th:nth-child(2) {
+    width: 23%;
+}
+
+th:nth-child(3) {
+    width: 15%;
+}
+
+th:nth-child(4) {
+    width: 17%;
+}
+
+th:nth-child(5) {
+    width: 20%;
+}
+
+th:nth-child(6) {
+    width: 13%;
+}
+
 td {
-    padding: 16px;
+    padding: 15px;
 
     border-bottom: 1px solid #eeeeee;
 
+    vertical-align: middle;
+
     font-size: 14px;
 
-    vertical-align: middle;
-}
-
-tbody tr {
-    transition: .2s;
+    overflow-wrap: break-word;
 }
 
 tbody tr:hover td {
-    background: #fffde2;
+    background: #fffde0;
 }
 
 
-/* TIME */
+/* =====================================================
+   TABLO İÇERİĞİ
+===================================================== */
 
 .time {
-    font-size: 19px;
+    color: #111111;
 
+    font-size: 20px;
     font-weight: 900;
-
-    color: #111;
 }
-
-.time-small {
-    font-size: 11px;
-
-    color: #999;
-
-    margin-top: 2px;
-}
-
-
-/* COMPANY */
 
 .company-name {
     font-size: 15px;
-
-    font-weight: 800;
+    font-weight: 900;
 }
-
-
-/* BRAND */
 
 .brand {
     display: inline-block;
 
-    background: #f3f3f3;
+    padding: 6px 9px;
 
-    color: #222;
+    background: #f0f0f0;
 
-    padding: 7px 11px;
+    border-radius: 6px;
 
-    border-radius: 7px;
-
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 800;
 }
-
-
-/* =========================
-   STATUS
-========================= */
 
 .status {
     display: inline-flex;
-
     align-items: center;
 
-    gap: 6px;
-
-    padding: 7px 11px;
+    padding: 7px 10px;
 
     border-radius: 30px;
 
-    font-size: 12px;
-
-    font-weight: 800;
+    font-size: 11px;
+    font-weight: 900;
 
     white-space: nowrap;
 }
@@ -757,58 +456,16 @@ tbody tr:hover td {
     color: #991b1b;
 }
 
-
-/* =========================
-   NEXT APPOINTMENT
-========================= */
-
-.next-appointment td {
-    background: #fffbd0 !important;
-
-    border-top: 2px solid var(--yellow);
-
-    border-bottom: 2px solid var(--yellow);
-}
-
-.next-badge {
-    display: inline-block;
-
-    margin-top: 5px;
-
-    background: var(--yellow);
-
-    color: #000;
-
-    padding: 4px 7px;
-
-    border-radius: 5px;
-
-    font-size: 10px;
-
-    font-weight: 900;
-}
-
-
-/* =========================
-   ACTIONS
-========================= */
-
 .actions {
     display: flex;
 
-    gap: 7px;
+    gap: 6px;
 }
 
 .btn-edit {
-    background: #e5e7eb;
-
-    color: #111;
+    background: #eeeeee;
 
     padding: 8px 10px;
-}
-
-.btn-edit:hover {
-    background: var(--yellow);
 }
 
 .btn-delete {
@@ -819,70 +476,78 @@ tbody tr:hover td {
     padding: 8px 10px;
 }
 
-.btn-delete:hover {
-    background: #fecaca;
+.next-appointment td {
+    background: #fffbd0 !important;
+
+    border-top: 2px solid var(--yellow);
+    border-bottom: 2px solid var(--yellow);
+}
+
+.next-badge {
+    display: inline-block;
+
+    margin-top: 4px;
+
+    background: var(--yellow);
+    color: #000;
+
+    padding: 3px 6px;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+    font-weight: 900;
 }
 
 
-/* =========================
-   EMPTY
-========================= */
+/* =====================================================
+   BOŞ LİSTE
+===================================================== */
 
 .empty {
     text-align: center;
 
-    padding: 65px 20px;
+    padding: 60px 20px;
 
-    color: #777;
+    color: #777777;
 }
 
 .empty-icon {
-    font-size: 45px;
+    margin-bottom: 8px;
 
-    margin-bottom: 10px;
+    font-size: 42px;
 }
 
 
-/* =========================
-   SETTINGS
-========================= */
+/* =====================================================
+   AYARLAR
+===================================================== */
 
 .settings {
-    margin-top: 25px;
+    margin-top: 20px;
+
+    padding: 20px;
 
     background: var(--black);
 
     color: white;
 
     border-radius: 14px;
-
-    padding: 22px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,.1);
 }
 
 .settings-title {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
+    margin-bottom: 18px;
 
     color: var(--yellow);
 
-    font-size: 18px;
-
-    font-weight: 800;
-
-    margin-bottom: 18px;
+    font-size: 17px;
+    font-weight: 900;
 }
 
 .form-grid {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 15px;
 }
@@ -896,38 +561,10 @@ tbody tr:hover td {
 }
 
 .form-group label {
-    font-size: 12px;
+    color: #aaaaaa;
 
-    color: #bbbbbb;
-
-    font-weight: 700;
-}
-
-input,
-select,
-textarea {
-    width: 100%;
-
-    border: 1px solid #d1d5db;
-
-    border-radius: 8px;
-
-    padding: 11px 12px;
-
-    font-size: 14px;
-
-    outline: none;
-
-    background: white;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--yellow);
-
-    box-shadow:
-        0 0 0 2px rgba(255,229,0,.2);
+    font-size: 11px;
+    font-weight: 800;
 }
 
 .settings input,
@@ -936,35 +573,29 @@ textarea:focus {
 
     color: white;
 
-    border-color: #333;
-}
-
-.settings select option {
-    background: #1c1c1c;
+    border-color: #333333;
 }
 
 
-/* =========================
+/* =====================================================
    MODAL
-========================= */
+===================================================== */
 
 .modal {
     display: none;
 
     position: fixed;
 
-    z-index: 1000;
+    z-index: 9999;
 
     inset: 0;
 
-    background:
-        rgba(0,0,0,.75);
+    padding: 20px;
+
+    background: rgba(0,0,0,.78);
 
     align-items: center;
-
     justify-content: center;
-
-    padding: 20px;
 }
 
 .modal.active {
@@ -973,7 +604,6 @@ textarea:focus {
 
 .modal-box {
     width: 100%;
-
     max-width: 600px;
 
     max-height: 92vh;
@@ -982,59 +612,51 @@ textarea:focus {
 
     background: white;
 
-    border-radius: 16px;
+    border-radius: 15px;
 
     box-shadow:
         0 20px 70px rgba(0,0,0,.4);
 }
 
 .modal-header {
+    padding: 18px 20px;
+
     background: var(--black);
 
     color: white;
 
-    padding: 20px 22px;
+    border-bottom: 4px solid var(--yellow);
 
     display: flex;
 
-    justify-content: space-between;
-
     align-items: center;
-
-    border-bottom: 4px solid var(--yellow);
+    justify-content: space-between;
 }
 
 .modal-header h2 {
     margin: 0;
 
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .close {
-    background: #222;
+    padding: 7px 10px;
+
+    background: #222222;
 
     color: white;
 
-    font-size: 18px;
-
-    padding: 7px 11px;
-}
-
-.close:hover {
-    background: var(--yellow);
-
-    color: black;
+    font-size: 17px;
 }
 
 .modal-body {
-    padding: 22px;
+    padding: 20px;
 }
 
 .modal-form {
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 15px;
 }
@@ -1043,47 +665,65 @@ textarea:focus {
     grid-column: 1 / -1;
 }
 
-.required {
-    color: #dc2626;
-}
-
 textarea {
-    min-height: 95px;
+    min-height: 100px;
 
     resize: vertical;
 }
 
 .modal-footer {
-    padding: 0 22px 22px;
+    padding: 0 20px 20px;
 
     display: flex;
 
     justify-content: flex-end;
 
-    gap: 10px;
+    gap: 8px;
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =====================================================
+   =====================================================
+   MOBİL TASARIM
+   =====================================================
+   ===================================================== */
 
-@media(max-width: 800px) {
+@media (max-width: 700px) {
+
+    body {
+        width: 100%;
+
+        overflow-x: hidden;
+
+        background: #eeeeee;
+    }
+
+    /* HEADER */
+
+    header {
+        width: 100%;
+    }
 
     .header-inner {
+        width: 100%;
+
         min-height: auto;
 
-        padding: 18px;
+        padding: 17px 12px;
 
         flex-direction: column;
 
-        align-items: center;
+        justify-content: center;
 
         text-align: center;
+
+        gap: 8px;
     }
 
     .logo {
-        width: 270px;
+        width: 220px;
+
+        max-width: 70vw;
     }
 
     .clock-box {
@@ -1094,57 +734,514 @@ textarea {
         font-size: 20px;
     }
 
-    .container {
-        margin-top: 15px;
-
-        padding: 0 10px;
+    .date-clock {
+        font-size: 12px;
     }
 
+    .timezone {
+        font-size: 10px;
+    }
+
+
+    /* ANA ALAN */
+
+    .container {
+        width: 100%;
+
+        max-width: none;
+
+        margin: 12px 0;
+
+        padding: 0 9px;
+    }
+
+
+    /* TOOLBAR */
+
     .toolbar {
+        width: 100%;
+
+        padding: 10px;
+
+        border-radius: 11px;
+
+        display: flex;
+
         flex-direction: column;
 
         align-items: stretch;
+
+        gap: 9px;
     }
 
     .date-area {
-        justify-content: center;
+        width: 100%;
+
+        display: flex;
+
+        gap: 5px;
     }
 
     .date-area input {
+        min-width: 0;
+
+        width: 100%;
+
         flex: 1;
+
+        text-align: center;
+
+        font-size: 13px;
     }
 
-    .btn-yellow {
-        width: 100%;
+    .day-button {
+        flex: 0 0 40px;
+
+        width: 40px;
+        height: 40px;
     }
+
+    .toolbar > .btn-yellow {
+        width: 100%;
+
+        min-height: 43px;
+
+        font-size: 13px;
+    }
+
+
+    /* İSTATİSTİK */
 
     .stats {
-        grid-template-columns:
-            1fr 1fr;
+        width: 100%;
 
-        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+
+        margin: 10px 0;
     }
 
     .stat {
-        padding: 14px;
+        width: 100%;
+
+        padding: 12px;
+
+        border-radius: 10px;
+    }
+
+    .stat::before {
+        width: 3px;
+    }
+
+    .stat-title {
+        font-size: 9px;
+
+        white-space: nowrap;
     }
 
     .stat-value {
-        font-size: 24px;
+        margin-top: 2px;
+
+        font-size: 22px;
     }
 
-    .form-grid,
+
+    /* =================================================
+       TABLO KAPANIYOR
+       MOBİLDE TABLO YERİNE KART
+    ================================================= */
+
+    .table-wrapper {
+        width: 100%;
+
+        overflow: visible;
+
+        background: transparent;
+
+        box-shadow: none;
+
+        border-radius: 0;
+    }
+
+    table {
+        display: block;
+
+        width: 100%;
+
+        min-width: 0;
+
+        border: 0;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody {
+        display: block;
+
+        width: 100%;
+    }
+
+
+    /* =================================================
+       RANDEVU KARTI
+    ================================================= */
+
+    tbody tr {
+        display: grid;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin: 0 0 10px 0;
+
+        padding: 13px;
+
+        background: white;
+
+        border: 1px solid #e5e5e5;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 3px 10px rgba(0,0,0,.07);
+
+        grid-template-columns:
+            minmax(0, 1fr)
+            auto;
+
+        grid-template-areas:
+
+            "time status"
+
+            "company company"
+
+            "brand brand"
+
+            "note note"
+
+            "actions actions";
+    }
+
+    tbody tr:hover td {
+        background: transparent !important;
+    }
+
+
+    /* TÜM HÜCRELERİ RESETLE */
+
+    tbody td {
+        display: block;
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent !important;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* SAAT */
+
+    tbody td:nth-child(1) {
+        grid-area: time;
+
+        align-self: center;
+    }
+
+    .time {
+        font-size: 25px;
+
+        line-height: 1;
+
+        color: #111111;
+    }
+
+
+    /* DURUM */
+
+    tbody td:nth-child(4) {
+        grid-area: status;
+
+        width: auto;
+
+        display: flex;
+
+        justify-content: flex-end;
+
+        align-items: center;
+    }
+
+    .status {
+        max-width: 130px;
+
+        padding: 6px 8px;
+
+        font-size: 9px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+    }
+
+
+    /* FİRMA */
+
+    tbody td:nth-child(2) {
+        grid-area: company;
+
+        margin-top: 11px;
+
+        padding-top: 10px;
+
+        border-top: 1px solid #eeeeee;
+    }
+
+    .company-name {
+        width: 100%;
+
+        font-size: 17px;
+
+        line-height: 1.2;
+
+        font-weight: 900;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* MARKA */
+
+    tbody td:nth-child(3) {
+        grid-area: brand;
+
+        margin-top: 7px;
+    }
+
+    .brand {
+        max-width: 100%;
+
+        padding: 5px 8px;
+
+        font-size: 11px;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* NOT */
+
+    tbody td:nth-child(5) {
+        grid-area: note;
+
+        margin-top: 8px;
+
+        color: #666666;
+
+        font-size: 11px;
+
+        line-height: 1.35;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* İŞLEMLER */
+
+    tbody td:nth-child(6) {
+        grid-area: actions;
+
+        margin-top: 11px;
+
+        padding-top: 10px;
+
+        border-top: 1px solid #eeeeee;
+    }
+
+    .actions {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 7px;
+    }
+
+    .actions button {
+        width: 100%;
+
+        padding: 9px;
+
+        font-size: 12px;
+    }
+
+
+    /* SIRADAKİ RANDEVU */
+
+    .next-appointment {
+        border: 2px solid var(--yellow);
+    }
+
+    .next-appointment td {
+        border: 0 !important;
+    }
+
+    .next-badge {
+        display: block;
+
+        width: fit-content;
+
+        margin-top: 5px;
+
+        padding: 3px 5px;
+
+        font-size: 8px;
+    }
+
+
+    /* BOŞ EKRAN */
+
+    .empty {
+        display: block;
+
+        width: 100%;
+
+        padding: 45px 12px;
+
+        background: white;
+
+        border-radius: 12px;
+    }
+
+
+    /* AYARLAR */
+
+    .settings {
+        width: 100%;
+
+        margin-top: 14px;
+
+        padding: 15px;
+
+        border-radius: 12px;
+    }
+
+    .settings-title {
+        font-size: 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+
+        gap: 11px;
+    }
+
+
+    /* MODAL */
+
+    .modal {
+        padding: 8px;
+    }
+
+    .modal-box {
+        width: 100%;
+
+        max-width: none;
+
+        max-height: 96vh;
+
+        border-radius: 13px;
+    }
+
+    .modal-header {
+        padding: 15px;
+    }
+
+    .modal-header h2 {
+        font-size: 16px;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+
     .modal-form {
         grid-template-columns: 1fr;
+
+        gap: 11px;
     }
 
     .full {
         grid-column: auto;
     }
 
-    .modal-box {
-        max-height: 95vh;
+    .modal-footer {
+        padding: 0 15px 15px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
     }
+
+    .modal-footer button {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   ÇOK KÜÇÜK TELEFONLAR
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .container {
+        padding: 0 7px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .clock {
+        font-size: 18px;
+    }
+
+    .stat {
+        padding: 10px;
+    }
+
+    .stat-title {
+        font-size: 8px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    tbody tr {
+        padding: 11px;
+    }
+
+    .time {
+        font-size: 23px;
+    }
+
+    .company-name {
+        font-size: 16px;
+    }
+
 }
 
 </style>
@@ -1154,9 +1251,9 @@ textarea {
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
@@ -1194,257 +1291,232 @@ textarea {
 </header>
 
 
+<!-- =====================================================
+     ANA
+===================================================== -->
 
-<div class="container">
+<main class="container">
 
 
-<!-- =========================
-     TOOLBAR
-========================= -->
+    <!-- TARİH + YENİ RANDEVU -->
 
-<div class="toolbar">
+    <section class="toolbar">
 
-    <div class="date-area">
+        <div class="date-area">
 
-        <button
-            class="day-button"
-            onclick="changeDay(-1)">
-            ‹
-        </button>
-
-        <input
-            type="date"
-            id="datePicker"
-            onchange="render()">
-
-        <button
-            class="day-button"
-            onclick="changeDay(1)">
-            ›
-        </button>
-
-    </div>
-
-
-    <button
-        class="btn-yellow"
-        onclick="openModal()">
-
-        ＋ YENİ RANDEVU
-
-    </button>
-
-</div>
-
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<div class="stats">
-
-    <div class="stat">
-
-        <div class="stat-title">
-            BUGÜNÜN RANDEVULARI
-        </div>
-
-        <div
-            class="stat-value"
-            id="totalCount">
-            0
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-title">
-            BEKLEYEN
-        </div>
-
-        <div
-            class="stat-value"
-            id="waitingCount">
-            0
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-title">
-            İŞLEMDE
-        </div>
-
-        <div
-            class="stat-value"
-            id="progressCount">
-            0
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-title">
-            TAMAMLANAN
-        </div>
-
-        <div
-            class="stat-value"
-            id="completedCount">
-            0
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================
-     TABLE
-========================= -->
-
-<div class="table-wrapper">
-
-<table>
-
-<thead>
-
-<tr>
-
-    <th>
-        SAAT
-    </th>
-
-    <th>
-        FİRMA
-    </th>
-
-    <th>
-        MARKA
-    </th>
-
-    <th>
-        DURUM
-    </th>
-
-    <th>
-        NOT
-    </th>
-
-    <th>
-        İŞLEMLER
-    </th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="appointmentTable">
-</tbody>
-
-</table>
-
-</div>
-
-
-
-<!-- =========================
-     SETTINGS
-========================= -->
-
-<div class="settings">
-
-    <div class="settings-title">
-
-        ⚙️
-
-        <span>
-            SİSTEM AYARLARI
-        </span>
-
-    </div>
-
-
-    <div class="form-grid">
-
-        <div class="form-group">
-
-            <label>
-                FİRMA / İŞLETME ADI
-            </label>
+            <button
+                class="day-button"
+                onclick="changeDay(-1)">
+                ‹
+            </button>
 
             <input
-                id="companyInput"
-                value="STUDIO PARS">
+                type="date"
+                id="datePicker"
+                onchange="render()">
+
+            <button
+                class="day-button"
+                onclick="changeDay(1)">
+                ›
+            </button>
 
         </div>
 
 
-        <div class="form-group">
+        <button
+            class="btn-yellow"
+            onclick="openModal()">
 
-            <label>
-                SAAT DİLİMİ
-            </label>
+            ＋ YENİ RANDEVU
 
-            <select id="timezoneInput">
+        </button>
 
-                <option value="Europe/Istanbul">
-                    Türkiye — Europe/Istanbul
-                </option>
+    </section>
 
-                <option value="Europe/Berlin">
-                    Almanya — Europe/Berlin
-                </option>
 
-                <option value="Europe/London">
-                    İngiltere — Europe/London
-                </option>
+    <!-- İSTATİSTİKLER -->
 
-                <option value="Europe/Paris">
-                    Fransa — Europe/Paris
-                </option>
+    <section class="stats">
 
-                <option value="Asia/Dubai">
-                    Dubai — Asia/Dubai
-                </option>
+        <div class="stat">
 
-            </select>
+            <div class="stat-title">
+                BUGÜNÜN RANDEVULARI
+            </div>
+
+            <div
+                class="stat-value"
+                id="totalCount">
+                0
+            </div>
 
         </div>
 
-    </div>
+
+        <div class="stat">
+
+            <div class="stat-title">
+                BEKLEYEN
+            </div>
+
+            <div
+                class="stat-value"
+                id="waitingCount">
+                0
+            </div>
+
+        </div>
 
 
-    <br>
+        <div class="stat">
+
+            <div class="stat-title">
+                İŞLEMDE
+            </div>
+
+            <div
+                class="stat-value"
+                id="progressCount">
+                0
+            </div>
+
+        </div>
 
 
-    <button
-        class="btn-yellow"
-        onclick="saveSettings()">
+        <div class="stat">
 
-        AYARLARI KAYDET
+            <div class="stat-title">
+                TAMAMLANAN
+            </div>
 
-    </button>
+            <div
+                class="stat-value"
+                id="completedCount">
+                0
+            </div>
 
-</div>
+        </div>
+
+    </section>
 
 
-</div>
+    <!-- =================================================
+         RANDEVULAR
+    ================================================== -->
+
+    <section class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>SAAT</th>
+
+                    <th>FİRMA</th>
+
+                    <th>MARKA</th>
+
+                    <th>DURUM</th>
+
+                    <th>NOT</th>
+
+                    <th>İŞLEMLER</th>
+
+                </tr>
+
+            </thead>
 
 
+            <tbody id="appointmentTable"></tbody>
 
-<!-- =========================
-     MODAL
-========================= -->
+        </table>
+
+    </section>
+
+
+    <!-- =================================================
+         AYARLAR
+    ================================================== -->
+
+    <section class="settings">
+
+        <div class="settings-title">
+            ⚙️ SİSTEM AYARLARI
+        </div>
+
+
+        <div class="form-grid">
+
+            <div class="form-group">
+
+                <label>
+                    FİRMA / İŞLETME ADI
+                </label>
+
+                <input
+                    id="companyInput"
+                    value="STUDIO PARS">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    SAAT DİLİMİ
+                </label>
+
+                <select id="timezoneInput">
+
+                    <option value="Europe/Istanbul">
+                        Türkiye — Europe/Istanbul
+                    </option>
+
+                    <option value="Europe/Berlin">
+                        Almanya — Europe/Berlin
+                    </option>
+
+                    <option value="Europe/London">
+                        İngiltere — Europe/London
+                    </option>
+
+                    <option value="Europe/Paris">
+                        Fransa — Europe/Paris
+                    </option>
+
+                    <option value="Asia/Dubai">
+                        Dubai — Asia/Dubai
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <button
+            class="btn-yellow"
+            onclick="saveSettings()">
+
+            AYARLARI KAYDET
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     RANDEVU MODAL
+===================================================== -->
 
 <div
     class="modal"
@@ -1478,8 +1550,6 @@ textarea {
             <div class="modal-form">
 
 
-                <!-- TARİH -->
-
                 <div class="form-group">
 
                     <label>
@@ -1492,8 +1562,6 @@ textarea {
 
                 </div>
 
-
-                <!-- SAAT -->
 
                 <div class="form-group">
 
@@ -1508,10 +1576,7 @@ textarea {
                 </div>
 
 
-                <!-- FİRMA -->
-
-                <div
-                    class="form-group full">
+                <div class="form-group full">
 
                     <label>
                         Firma Adı *
@@ -1524,8 +1589,6 @@ textarea {
 
                 </div>
 
-
-                <!-- MARKA -->
 
                 <div class="form-group">
 
@@ -1540,8 +1603,6 @@ textarea {
 
                 </div>
 
-
-                <!-- DURUM -->
 
                 <div class="form-group">
 
@@ -1572,10 +1633,7 @@ textarea {
                 </div>
 
 
-                <!-- NOT -->
-
-                <div
-                    class="form-group full">
+                <div class="form-group full">
 
                     <label>
                         Not
@@ -1586,7 +1644,6 @@ textarea {
                         placeholder="Randevu hakkında not..."></textarea>
 
                 </div>
-
 
             </div>
 
@@ -1619,13 +1676,11 @@ textarea {
 </div>
 
 
-
 <script>
 
-
-/* =========================
-   DATA
-========================= */
+/* =====================================================
+   VERİLER
+===================================================== */
 
 let appointments =
     JSON.parse(
@@ -1652,13 +1707,13 @@ let settings =
     };
 
 
+/* =====================================================
+   BUGÜN
+===================================================== */
 
-/* =========================
-   TODAY
-========================= */
+function getToday() {
 
-const today =
-    new Intl.DateTimeFormat(
+    return new Intl.DateTimeFormat(
         "en-CA",
         {
             timeZone:
@@ -1668,19 +1723,41 @@ const today =
         new Date()
     );
 
+}
+
+
+/* =====================================================
+   BAŞLANGIÇ
+===================================================== */
 
 document.getElementById(
     "datePicker"
-).value = today;
+).value = getToday();
 
 
+document.getElementById(
+    "companyInput"
+).value =
+    settings.company;
 
-/* =========================
-   RENDER
-========================= */
+
+document.getElementById(
+    "timezoneInput"
+).value =
+    settings.timezone;
+
+
+document.getElementById(
+    "timezoneText"
+).textContent =
+    settings.timezone;
+
+
+/* =====================================================
+   RANDEVULARI GÖSTER
+===================================================== */
 
 function render() {
-
 
     const selectedDate =
         document.getElementById(
@@ -1690,19 +1767,17 @@ function render() {
 
     const list =
         appointments
-
-        .filter(
-            x =>
-                x.date ===
-                selectedDate
-        )
-
-        .sort(
-            (a,b) =>
-                a.time.localeCompare(
-                    b.time
-                )
-        );
+            .filter(
+                appointment =>
+                    appointment.date ===
+                    selectedDate
+            )
+            .sort(
+                (a,b) =>
+                    a.time.localeCompare(
+                        b.time
+                    )
+            );
 
 
     const table =
@@ -1714,9 +1789,7 @@ function render() {
     table.innerHTML = "";
 
 
-    if (
-        list.length === 0
-    ) {
+    if (list.length === 0) {
 
         table.innerHTML = `
 
@@ -1734,11 +1807,11 @@ function render() {
                         Bu gün için randevu yok
                     </strong>
 
-                    <br>
+                    <br><br>
 
                     <small>
                         Yeni randevu eklemek için
-                        "YENİ RANDEVU" butonunu kullanın.
+                        yukarıdaki butonu kullanın.
                     </small>
 
                 </td>
@@ -1747,61 +1820,60 @@ function render() {
 
         `;
 
+        updateStats(list);
+
+        return;
+
     }
 
 
-    else {
+    const now = new Date();
 
 
-        const now =
-            new Date();
+    const currentDate =
+        new Intl.DateTimeFormat(
+            "en-CA",
+            {
+                timeZone:
+                    settings.timezone
+            }
+        ).format(now);
 
 
-        const currentDate =
-            new Intl.DateTimeFormat(
-                "en-CA",
-                {
-                    timeZone:
-                        settings.timezone
-                }
-            ).format(now);
+    const currentTime =
+        new Intl.DateTimeFormat(
+            "en-GB",
+            {
+                timeZone:
+                    settings.timezone,
+
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit",
+
+                hour12:
+                    false
+            }
+        ).format(now);
 
 
-        const currentTime =
-            new Intl.DateTimeFormat(
-                "en-GB",
-                {
-                    timeZone:
-                        settings.timezone,
-
-                    hour:
-                        "2-digit",
-
-                    minute:
-                        "2-digit",
-
-                    hour12:
-                        false
-                }
-            ).format(now);
+    let nextFound = false;
 
 
-        let nextFound = false;
+    list.forEach(
+        appointment => {
 
-
-        list.forEach(a => {
-
-
-            let isNext =
-                false;
+            let isNext = false;
 
 
             if (
                 !nextFound &&
                 selectedDate === currentDate &&
-                a.time >= currentTime &&
-                a.status !== "completed" &&
-                a.status !== "cancelled"
+                appointment.time >= currentTime &&
+                appointment.status !== "completed" &&
+                appointment.status !== "cancelled"
             ) {
 
                 isNext = true;
@@ -1848,18 +1920,16 @@ function render() {
                 <td>
 
                     <div class="time">
-                        ${escapeHtml(a.time)}
+                        ${escapeHtml(appointment.time)}
                     </div>
 
                     ${
                         isNext
-
                         ? `
                             <span class="next-badge">
                                 ★ SIRADAKİ
                             </span>
                           `
-
                         : ""
                     }
 
@@ -1869,7 +1939,7 @@ function render() {
                 <td>
 
                     <div class="company-name">
-                        ${escapeHtml(a.company)}
+                        ${escapeHtml(appointment.company)}
                     </div>
 
                 </td>
@@ -1878,11 +1948,11 @@ function render() {
                 <td>
 
                     ${
-                        a.brand
+                        appointment.brand
 
                         ? `
                             <span class="brand">
-                                ${escapeHtml(a.brand)}
+                                ${escapeHtml(appointment.brand)}
                             </span>
                           `
 
@@ -1895,13 +1965,9 @@ function render() {
                 <td>
 
                     <span
-                        class="status ${a.status}">
+                        class="status ${appointment.status}">
 
-                        ${
-                            statusText[
-                                a.status
-                            ]
-                        }
+                        ${statusText[appointment.status]}
 
                     </span>
 
@@ -1911,9 +1977,9 @@ function render() {
                 <td>
 
                     ${
-                        a.note
+                        appointment.note
 
-                        ? escapeHtml(a.note)
+                        ? escapeHtml(appointment.note)
 
                         : `<span style="color:#aaa">—</span>`
                     }
@@ -1927,8 +1993,7 @@ function render() {
 
                         <button
                             class="btn-edit"
-                            onclick="editAppointment('${a.id}')"
-                            title="Düzenle">
+                            onclick="editAppointment('${appointment.id}')">
 
                             ✏️
 
@@ -1937,8 +2002,7 @@ function render() {
 
                         <button
                             class="btn-delete"
-                            onclick="deleteAppointment('${a.id}')"
-                            title="Sil">
+                            onclick="deleteAppointment('${appointment.id}')">
 
                             🗑️
 
@@ -1953,9 +2017,8 @@ function render() {
 
             table.appendChild(row);
 
-        });
-
-    }
+        }
+    );
 
 
     updateStats(list);
@@ -1963,10 +2026,9 @@ function render() {
 }
 
 
-
-/* =========================
-   STATS
-========================= */
+/* =====================================================
+   İSTATİSTİK
+===================================================== */
 
 function updateStats(list) {
 
@@ -2008,13 +2070,11 @@ function updateStats(list) {
 }
 
 
-
-/* =========================
-   OPEN MODAL
-========================= */
+/* =====================================================
+   MODAL AÇ
+===================================================== */
 
 function openModal() {
-
 
     editingId = null;
 
@@ -2035,17 +2095,20 @@ function openModal() {
 
     document.getElementById(
         "appointmentTime"
-    ).value = "";
+    ).value =
+        "";
 
 
     document.getElementById(
         "appointmentCompany"
-    ).value = "";
+    ).value =
+        "";
 
 
     document.getElementById(
         "brand"
-    ).value = "";
+    ).value =
+        "";
 
 
     document.getElementById(
@@ -2056,7 +2119,8 @@ function openModal() {
 
     document.getElementById(
         "note"
-    ).value = "";
+    ).value =
+        "";
 
 
     document.getElementById(
@@ -2068,10 +2132,9 @@ function openModal() {
 }
 
 
-
-/* =========================
-   CLOSE MODAL
-========================= */
+/* =====================================================
+   MODAL KAPAT
+===================================================== */
 
 function closeModal() {
 
@@ -2084,13 +2147,11 @@ function closeModal() {
 }
 
 
-
-/* =========================
-   SAVE
-========================= */
+/* =====================================================
+   RANDEVU KAYDET
+===================================================== */
 
 function saveAppointment() {
-
 
     const date =
         document.getElementById(
@@ -2110,11 +2171,6 @@ function saveAppointment() {
         ).value.trim();
 
 
-    /*
-       SADECE TARİH,
-       SAAT VE FİRMA ZORUNLU
-    */
-
     if (
         !date ||
         !time ||
@@ -2130,28 +2186,22 @@ function saveAppointment() {
     }
 
 
-    /*
-       SAAT ÇAKIŞMASI
-    */
-
     const duplicate =
         appointments.some(
-            x =>
-                x.date === date &&
-                x.time === time &&
-                x.id !== editingId
+            appointment =>
+                appointment.date === date &&
+                appointment.time === time &&
+                appointment.id !== editingId
         );
 
 
     if (duplicate) {
 
-        const continueSave =
-            confirm(
-                "⚠️ Bu saatte zaten bir randevu bulunuyor.\n\nYine de kaydetmek istiyor musunuz?"
-            );
-
-
-        if (!continueSave) {
+        if (
+            !confirm(
+                "⚠️ Bu saatte zaten bir randevu var.\n\nYine de kaydetmek istiyor musunuz?"
+            )
+        ) {
 
             return;
 
@@ -2160,7 +2210,7 @@ function saveAppointment() {
     }
 
 
-    const data = {
+    const appointment = {
 
         id:
             editingId ||
@@ -2195,7 +2245,6 @@ function saveAppointment() {
 
     if (editingId) {
 
-
         const index =
             appointments.findIndex(
                 x =>
@@ -2207,14 +2256,17 @@ function saveAppointment() {
         if (index !== -1) {
 
             appointments[index] =
-                data;
+                appointment;
 
         }
 
+    }
 
-    } else {
+    else {
 
-        appointments.push(data);
+        appointments.push(
+            appointment
+        );
 
     }
 
@@ -2226,12 +2278,6 @@ function saveAppointment() {
         )
     );
 
-
-    /*
-       Tarihi değiştirip
-       kaydedilen randevunun
-       tarihine geç
-    */
 
     document.getElementById(
         "datePicker"
@@ -2246,22 +2292,22 @@ function saveAppointment() {
 }
 
 
-
-/* =========================
-   EDIT
-========================= */
+/* =====================================================
+   DÜZENLE
+===================================================== */
 
 function editAppointment(id) {
 
-
-    const a =
+    const appointment =
         appointments.find(
             x =>
                 x.id === id
         );
 
 
-    if (!a) return;
+    if (!appointment) {
+        return;
+    }
 
 
     editingId = id;
@@ -2276,38 +2322,37 @@ function editAppointment(id) {
     document.getElementById(
         "appointmentDate"
     ).value =
-        a.date;
+        appointment.date;
 
 
     document.getElementById(
         "appointmentTime"
     ).value =
-        a.time;
+        appointment.time;
 
 
     document.getElementById(
         "appointmentCompany"
     ).value =
-        a.company || "";
+        appointment.company;
 
 
     document.getElementById(
         "brand"
     ).value =
-        a.brand || "";
+        appointment.brand || "";
 
 
     document.getElementById(
         "status"
     ).value =
-        a.status ||
-        "waiting";
+        appointment.status;
 
 
     document.getElementById(
         "note"
     ).value =
-        a.note || "";
+        appointment.note || "";
 
 
     document.getElementById(
@@ -2319,41 +2364,36 @@ function editAppointment(id) {
 }
 
 
-
-/* =========================
-   DELETE
-========================= */
+/* =====================================================
+   SİL
+===================================================== */
 
 function deleteAppointment(id) {
 
-
-    const a =
+    const appointment =
         appointments.find(
             x =>
                 x.id === id
         );
 
 
-    if (!a) return;
+    if (!appointment) {
+        return;
+    }
 
 
-    const answer =
-        confirm(
+    if (
+        !confirm(
+            "Bu randevuyu silmek istediğinize emin misiniz?\n\n" +
+            appointment.time +
+            " - " +
+            appointment.company
+        )
+    ) {
 
-            "Randevu silinecek.\n\n" +
+        return;
 
-            "Firma: " +
-            a.company +
-
-            "\nSaat: " +
-            a.time +
-
-            "\n\nDevam etmek istiyor musunuz?"
-
-        );
-
-
-    if (!answer) return;
+    }
 
 
     appointments =
@@ -2376,13 +2416,11 @@ function deleteAppointment(id) {
 }
 
 
-
-/* =========================
-   CHANGE DAY
-========================= */
+/* =====================================================
+   GÜN DEĞİŞTİR
+===================================================== */
 
 function changeDay(amount) {
-
 
     const input =
         document.getElementById(
@@ -2403,9 +2441,30 @@ function changeDay(amount) {
     );
 
 
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
     input.value =
-        date.toISOString()
-        .split("T")[0];
+        `${year}-${month}-${day}`;
 
 
     render();
@@ -2413,13 +2472,11 @@ function changeDay(amount) {
 }
 
 
-
-/* =========================
-   SETTINGS
-========================= */
+/* =====================================================
+   AYARLAR
+===================================================== */
 
 function saveSettings() {
-
 
     settings.company =
         document.getElementById(
@@ -2454,20 +2511,18 @@ function saveSettings() {
     );
 
 
-    updateClock();
-
     render();
+
+    updateClock();
 
 }
 
 
-
-/* =========================
-   CLOCK
-========================= */
+/* =====================================================
+   SAAT
+===================================================== */
 
 function updateClock() {
-
 
     const now =
         new Date();
@@ -2538,10 +2593,9 @@ function updateClock() {
 }
 
 
-
-/* =========================
-   ESCAPE HTML
-========================= */
+/* =====================================================
+   GÜVENLİ METİN
+===================================================== */
 
 function escapeHtml(value) {
 
@@ -2577,34 +2631,9 @@ function escapeHtml(value) {
 }
 
 
-
-/* =========================
-   APPLY SETTINGS
-========================= */
-
-function applySettings() {
-
-
-    document.getElementById(
-        "companyInput"
-    ).value =
-        settings.company;
-
-
-    document.getElementById(
-        "timezoneInput"
-    ).value =
-        settings.timezone;
-
-}
-
-
-
-/* =========================
-   START
-========================= */
-
-applySettings();
+/* =====================================================
+   BAŞLAT
+===================================================== */
 
 render();
 
@@ -2617,15 +2646,32 @@ setInterval(
 );
 
 
-/*
-   Saat değiştikçe
-   sıradaki randevunun
-   vurgusu da güncellensin.
-*/
-
 setInterval(
     render,
     30000
+);
+
+
+/* =====================================================
+   MODAL DIŞINA TIKLAYINCA KAPAT
+===================================================== */
+
+document.getElementById(
+    "appointmentModal"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target ===
+            this
+        ) {
+
+            closeModal();
+
+        }
+
+    }
 );
 
 </script>
